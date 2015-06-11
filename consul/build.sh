@@ -24,11 +24,14 @@ zip="${VERSION}_linux_amd64.zip"
 
 if [ ! -f "$zip" ] ; then
   echo "No zip file named $zip locally, downloading"
-  curl -LO https://dl.bintray.com/mitchellh/consul/$zip
+  curl -#qLO https://dl.bintray.com/mitchellh/consul/$zip
 fi
 
-echo "Where is that damn zip file!?"
-ls -l
+if [ ! -f "$zip" ] ; then
+  echo "Missing zip and looks like the download failed. Can't continue"
+  exit 1
+fi
+
 
 echo "Extracting $zip"
 unzip $zip -d build/usr/bin/
@@ -44,6 +47,5 @@ fpm -s dir -t rpm -n consul -v "$VERSION" \
   --license "Mozilla Public License, version 2.0" \
   --rpm-use-file-permissions \
   --rpm-user root --rpm-group root \
-  --rpm-changelog ChangeLog \
   -x .gitinclude \
   -f -C $destdir .
