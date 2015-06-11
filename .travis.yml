@@ -1,5 +1,7 @@
-install:
+sudo: required
+before_install:
+  - apt-get update -qq
+  - apt-get install -qq rpm
   - gem install fpm
 script:
-  - cd consul
-  - ./build.sh
+  - consul/build.sh
