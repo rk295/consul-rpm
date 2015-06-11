@@ -11,6 +11,9 @@ DESCRIPTION="Consul makes it simple for services to register themselves and to d
 destdir="build"
 prefix="usr/bin"
 
+echo "Installing rpmbuild"
+yum -y install rpm-build
+
 echo "Building package version: $VERSION release: $RELEASE epoch: $EPOCH"
 
 if [ "$destdir/$prefix" != "/"  ] ; then
