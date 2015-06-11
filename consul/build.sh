@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd ${0%/*} 
+
 VERSION="0.5.2"
 RELEASE="1"
 EPOCH="1"
