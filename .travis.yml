@@ -1,2 +1,5 @@
 install:
   - gem install fpm
+script:
+  - cd consul
+  - ./build.sh
