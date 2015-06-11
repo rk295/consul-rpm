@@ -24,7 +24,7 @@ zip="${VERSION}_linux_amd64.zip"
 
 if [ ! -f "$zip" ] ; then
   echo "No zip file named $zip locally, downloading"
-  curl -LO https://dl.bintray.com/mitchellh/consul/#$zip
+  curl -LO https://dl.bintray.com/mitchellh/consul/$zip
 fi
 
 echo "Where is that damn zip file!?"
