@@ -27,6 +27,9 @@ if [ ! -f "$zip" ] ; then
   curl -LO https://dl.bintray.com/mitchellh/consul/#$zip
 fi
 
+echo "Where is that damn zip file!?"
+ls -l
+
 echo "Extracting $zip"
 unzip $zip -d build/usr/bin/
 
