@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ${0%/*} 
+cd ${0%/*}
 
 VERSION="0.5.2"
 RELEASE="1"
@@ -23,8 +23,8 @@ mkdir -p $destdir/$prefix
 zip="${VERSION}_linux_amd64.zip"
 
 if [ ! -f "$zip" ] ; then
-  echo "Unable to find $zip"
-  exit 1
+  echo "No zip file named $zip locally, downloading"
+  curl -LO https://dl.bintray.com/mitchellh/consul/#$zip
 fi
 
 echo "Extracting $zip"
